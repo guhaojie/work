@@ -13,18 +13,18 @@ def basic_gen(result=None):
     _r = random.randint(BOUND_L, BOUND_U) if result is None else result
     _op = random.choice(['+', '-', '×', '÷']) if _r != 0 else random.choice(['+', '-', '×'])
     _fn = {
-        '+': [lambda r: random.randint(BOUND_L, r),
-              lambda r, x: r - x],
-        '-': [lambda r: random.randint(r, BOUND_U),
-              lambda r, x: x - r],
-        '×': [lambda r: random.choice([i for i in range(2, r) if r % i == 0] or [1, r]),
-              lambda r, x: random.randint(BOUND_L, BOUND_U) if x == 0 else int(r / x)],
-        '÷': [lambda r: random.choice([i for i in range(1, BOUND_U // r)] or [1]) * r,
-              lambda r, x: int(x / r)]
+        '+': {'x': lambda r: random.randint(BOUND_L, r),
+              'y': lambda r, x: r - x},
+        '-': {'x': lambda r: random.randint(r, BOUND_U),
+              'y': lambda r, x: x - r},
+        '×': {'x': lambda r: random.choice([i for i in range(2, r) if r % i == 0] or [1, r]),
+              'y': lambda r, x: random.randint(BOUND_L, BOUND_U) if x == 0 else int(r / x)},
+        '÷': {'x': lambda r: random.choice([i for i in range(1, BOUND_U // r)] or [1]) * r,
+              'y': lambda r, x: int(x / r)}
     }
     while True:
-        _x = _fn[_op][0](_r)
-        _y = _fn[_op][1](_r, _x)
+        _x = _fn[_op]['x'](_r)
+        _y = _fn[_op]['y'](_r, _x)
         if len(list(filter(
                 lambda x: True if BOUND_L <= x <= BOUND_U else False,
                 [_x, _y]))) == 2:
@@ -84,13 +84,13 @@ def gen_print(x, last_op=None, lr=None):
 
 
 for _ in range(2):
-    x_o = expand_gen(basic_gen,
-                     2,
-                     basic_gen(random.randint(BOUND_L, BOUND_U)))
-    x_r = x_o['r']
-    print(f"{_ + 1}>\t{gen_print(x_o)}", end='')
+    Question = expand_gen(basic_gen,
+                          2,
+                          basic_gen(random.randint(BOUND_L, BOUND_U)))
+    Answer = Question['r']
+    print(f"{_ + 1}>\t{gen_print(Question)}", end='')
     ans = input()
-    if ans == str(x_r):
+    if ans == str(Answer):
         print("It's right!")
     else:
-        print(f"It's wrong! The right answer is {x_r}.")
+        print(f"It's wrong! The right answer is {Answer}.")
