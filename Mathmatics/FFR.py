@@ -1,3 +1,13 @@
+#  #!/usr/bin/python3
+#  _*_ coding: utf-8 _*_
+#
+#  #
+#  @Time    : ${DATE} ${TIME}
+#  @Author  : haojiegu
+#  @File    : ${NAME}.py
+#  @IDE     : ${PRODUCT_NAME}
+#  @License: MIT
+
 import random
 
 BOUND_U = 100
@@ -60,7 +70,7 @@ def gen_print(x, last_op=None, lr=None):
     x0 = x[0]
     _wrap = False if last_op is None else (
             (_op_order[last_op] > _op_order[x0[1]]) or
-            (last_op == '-' and lr == 'r') or
+            (last_op == '-' and _op_order[x0[1]] == 0 and lr == 'r') or
             (last_op == '÷' and lr == 'r'))
     if _wrap:
         print("(", end='')
