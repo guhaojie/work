@@ -65,19 +65,25 @@ def gen_print(x, last_op=None, lr=None):
             (_op_order[last_op] > _op_order[x['op']]) or
             (last_op == '-' and _op_order[x['op']] == 0 and lr == 'r') or
             (last_op == '÷' and lr == 'r'))
+    # 加入左括号
     if _wrap:
         _r += "("
+    # 加入左子式
     if type(x['x']) is dict:
         _r += gen_print(x['x'], x['op'], 'l')
     else:
         _r += f"{x['x']}"
+    # 加入算符
     _r += f" {x['op']} "
+    # 加入右子式
     if type(x['y']) is dict:
         _r += gen_print(x['y'], x['op'], 'r')
     else:
         _r += f"{x['y']}"
+    # 加入右括号
     if _wrap:
         _r += ")"
+    # 加入等于号和问号
     if last_op is None:
         _r += " = ? "
     return _r
