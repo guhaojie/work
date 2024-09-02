@@ -1,0 +1,122 @@
+rules = [{
+    "name": "dangjian",
+    "file_name_prefix_rule": "中国共产党新闻网",
+    "allowed_domains": ["dangjian.people.com.cn"],
+    "start_urls": ["http://dangjian.people.com.cn/GB/117094/index.html"],
+    "news_url_rule": "//div[@class='fl']/ul/li/a/@href",
+    "news_url_prefix_rule": "http://dangjian.people.com.cn",
+    "news_title_rule": "//h1//text()",
+    "news_content_rule": "//div[@class='show_text']/p//text()",
+    "news_next_page_url_rule": "//a[text()='下一页']/@href",
+    "news_next_page_url_prefix_rule": "http://dangjian.people.com.cn/GB/117094/"
+}, {
+    "name": "qizhiwang",
+    "file_name_prefix_rule": "中直机关旗帜网",
+    "allowed_domains": ["qizhiwang.org.cn"],
+    "start_urls": ["http://www.qizhiwang.org.cn/GB/422353/422369/index.html"],
+    "news_url_rule": "//ul[@class='list']/li/a/@href",
+    "news_url_prefix_rule": "http://www.qizhiwang.org.cn",
+    "news_title_rule": "//h1//text()",
+    "news_content_rule": "//div[@class='w1200 flag-text-con clearfix']/p//text()",
+    "news_next_page_url_rule": "//a[text()='下一页']/@href",
+    "news_next_page_url_prefix_rule": "http://www.qizhiwang.org.cn/GB/422353/422369/"
+}, {
+    "name": "shjgdj",
+    "file_name_prefix_rule": "上海机关党建网",
+    "allowed_domains": ["www.shjgdj.gov.cn"],
+    "start_urls": ["https://www.shjgdj.gov.cn/node16/index0.html"],
+    "news_url_rule": "//ul[@class='list']/li/div/p/a/@href",
+    "news_url_prefix_rule": "https://www.shjgdj.gov.cn",
+    "news_title_rule": "//div[@class='detail_title']//text()",
+    "news_content_rule": "//div[@class='detail_zw']/p//text()",
+    "news_next_page_url_rule": "//a[@class='currtPage']/following-sibling::a[1]/@href",
+    "news_next_page_url_prefix_rule": "https://www.shjgdj.gov.cn"
+}, {
+    "name": "snjgdj",
+    "file_name_prefix_rule": "陕西机关党建网",
+    "allowed_domains": ["www.snjgdj.gov.cn"],
+    "start_urls": ["https://www.snjgdj.gov.cn/newstyle/pub_newschannel.asp?chid=100559"],
+    "news_url_rule": "//div[@class='list_nr']/ul/li/a/@href",
+    "news_url_prefix_rule": "https://www.snjgdj.gov.cn/",
+    "news_title_rule": "//div[@class='centit']/p//text()",
+    "news_content_rule": "//div[@class='content_con']/p//text()",
+    "news_next_page_url_rule": "//a[@title='下一页']/@href",
+    "news_next_page_url_prefix_rule": "https://www.snjgdj.gov.cn/"
+}, {
+    "name": "jsdj",
+    "file_name_prefix_rule": "江苏机关党建网",
+    "allowed_domains": ["www.jsdj.gov.cn"],
+    "start_urls": ["https://www.jsdj.gov.cn/category/sxcz.html?t=1724723700306"],
+    "news_url_reg_rule": r"https://www.jsdj.gov.cn/pros_wjdc/s/cms/jsdj/single/[0-9]{4}/[0-9]{2}/[0-9]{2}/[0-9]{1,}",
+    "news_url_prefix_rule": "",
+    "news_title_rule": "//h2//text()",
+    "news_content_rule": "//div[@class='j-article-center']/p//text()",
+    "news_next_page_url_rule": "//a[@title='下一页']/@href",
+    "news_next_page_url_prefix_rule": ""
+}, {
+    "name": "scjgdj",
+    "file_name_prefix_rule": "四川机关党建网",
+    "allowed_domains": ["www.scjgdj.gov.cn"],
+    "start_urls": ["http://www.scjgdj.gov.cn/B000000131/"],
+    "news_url_rule": "//li[@class='cl']//a/@href",
+    "news_url_prefix_rule": "http://www.scjgdj.gov.cn",
+    "news_title_rule": "//h1/text()",
+    "news_content_rule": "//div[@id='scol_txt']/p//text()",
+    "news_next_page_url_rule": "//a[text()='下一页']/@href",
+    "news_next_page_url_prefix_rule": "http://www.scjgdj.gov.cn/B000000131/"
+}, {
+    "name": "fjjgdj",
+    "file_name_prefix_rule": "福建机关党建网",
+    "allowed_domains": ["fjjgdj.gov.cn"],
+    "start_urls": ["http://www.fjjgdj.gov.cn/djdt/szdt/sxzdt/"],
+    "news_url_rule": "//ul[@class='list_lb']/li/a/@href",
+    "news_url_prefix_rule": "http://www.fjjgdj.gov.cn/djdt/szdt/sxzdt/",
+    "news_title_rule": "//div[@class='nr_dbt']/text()",
+    "news_content_rule": "//div[@class='TRS_Editor']//p/text()",
+    "news_next_page_url_rule": "//a[text()='下一页']/@href",
+    "news_next_page_url_prefix_rule": "http://www.fjjgdj.gov.cn/djdt/szdt/sxzdt/"
+}, {
+    "name": "ynjgdj",
+    "file_name_prefix_rule": "云南机关党建网",
+    "allowed_domains": ["ynjgdj.gov.cn"],
+    "start_urls": ["https://www.ynjgdj.gov.cn/html/zhoushichuanzhen/"],
+    "news_url_rule": "//div[@class='list-content-ul list-snyw-content-ul']/ul/li/a/@href",
+    "news_url_prefix_rule": "https://www.ynjgdj.gov.cn",
+    "news_title_rule": "//div[@class='list-content-title']/text()",
+    "news_content_rule": "//div[@class='list-content-mainbody']//p/text()",
+    "news_next_page_url_rule": "//a[text()='下一页']/@href",
+    "news_next_page_url_prefix_rule": "https://www.ynjgdj.gov.cn"
+}, {
+    "name": "hnjgdj",
+    "file_name_prefix_rule": "河南机关党建网",
+    "allowed_domains": ["hnjgdj.gov.cn"],
+    "start_urls": ["http://www.hnjgdj.gov.cn/tszs60/"],
+    "news_url_rule": "//div[@class='newslist']/ul/li/a/@href",
+    "news_url_prefix_rule": "",
+    "news_title_rule": "//h1//text()",
+    "news_content_rule": "//div[@class='newscontent']//p//text()",
+    "news_next_page_url_rule": "//a[text()='下一页']/@href",
+    "news_next_page_url_prefix_rule": ""
+}, {
+    "name": "hbjgdj",
+    "file_name_prefix_rule": "湖北机关党建网",
+    "allowed_domains": ["hbjgdj.gov.cn"],
+    "start_urls": ["http://www.hbjgdj.gov.cn/djdt/index.shtml"],
+    "news_url_rule": "//div[@class='list']/ul/li/a/@href",
+    "news_url_prefix_rule": "http://www.hbjgdj.gov.cn/djdt/",
+    "news_title_rule": "//h1/text()",
+    "news_content_rule": "//div[@class='TRS_Editor']//p/text()",
+    "news_next_page_url_rule": "//a[text()='下一页']/@href",
+    "news_next_page_url_prefix_rule": "http://www.hbjgdj.gov.cn/djdt/"
+}, {
+    "name": "ccps",
+    "file_name_prefix_rule": "学习思想库",
+    "allowed_domains": ["ccps.gov.cn"],
+    "start_urls": ["https://www.ccps.gov.cn/xxsxk/?index=2"],
+    "news_url_rule": "//ul[@class='ixxsxkTkUl ixxsxkTkUl1 ixxsxkTkUl2']/li/a/@href",
+    "news_url_prefix_rule": "https://www.ccps.gov.cn/xxsxk/",
+    "news_title_rule": "//h2[@class='xlTitle xtitle-center']/text()",
+    "news_content_rule": "//div[@class='TRS_Editor']//text()",
+    "news_next_page_url_rule": "//a[text()='下一页']/@href",
+    "news_next_page_url_prefix_rule": "https://www.ccps.gov.cn/xxsxk/"
+}, ]
