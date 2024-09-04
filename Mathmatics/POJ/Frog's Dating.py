@@ -53,5 +53,3 @@ elif A['v'] == B['v']:
 else:
 
     pass
-
-
