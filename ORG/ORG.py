@@ -38,8 +38,10 @@ def select_node(key: int | str, search_from: Tree, by: Callable) -> List[Node]:
         if by(_) == key:
             _x.append(_)
     return _x
-def node_id(x: Node) -> int:
-    return x.get('id', 0)
+def node_id(node: Node) -> int:
+    return node.get('id', 0)
+def node_name(node: Node) -> int:
+    return node.get('name', "Null")
 def parse_tree(tree: Tree, from_node: int, symbol: Optional[str] = "\\_") -> List[str]:
     _x = [f"{symbol}{tree[from_node]['id']}"]
     for _ in tree[from_node]['children']:
