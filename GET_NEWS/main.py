@@ -8,7 +8,5 @@ if __name__ == '__main__':
     for rule in rules:
         process.crawl('common_spider', rule=rule)
 
-#    process.crawl('common_spider', rule=rules[10])
-
     process.start()
     print("\n**************FINISHED**************")
