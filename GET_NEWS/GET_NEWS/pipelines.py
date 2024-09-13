@@ -6,12 +6,14 @@
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
-from jieba.analyse import *
+import jieba
+
+jieba.setLogLevel(jieba.logging.INFO)
 
 class GenNewsKWPipeline:
     def process_item(self, item, spider):
         data = ' '.join(item['nsTITLE']) + ' '.join(item['nsCONTENT'])
-        for keyword in textrank(data, topK=5, withWeight=False, allowPOS=('ns', 'n', 'vn', 'v')):
+        for keyword in jieba.analyse.textrank(data, topK=5, withWeight=False, allowPOS=('ns', 'n', 'vn', 'v')):
             item['nsKEYWORDS'].append(f"#{keyword} ")
         return item
 
