@@ -1,3 +1,5 @@
+from core.view import View
+
 class Menu:
     def __init__(self, title="主菜单"):
         self.title = title
@@ -13,15 +15,15 @@ class Menu:
             self.options[key] = (description, action)
 
     def display(self):
-        print(f"\n==== {self.title} ====")
+        View.show_level_1_title(self.title)
         for _ in sorted(self.options.keys()):
-            print(f"{_}. {self.options[_][0]}")
+            View.show_message(f"{_}. {self.options[_][0]}")
         for _ in sorted(self.sub_menus.keys()):
-            print(f"{_}. {self.sub_menus[_].title}")
+            View.show_message(f"{_}. {self.sub_menus[_].title}")
         if self.parent_menu:
-            print("b. 返回")
+            View.show_message("b. 返回")
         else:
-            print("q. 退出")
+            View.show_message("q. 退出")
 
     def execute(self, choice):
         if choice in self.options:
@@ -31,14 +33,14 @@ class Menu:
         elif choice == 'b' and self.parent_menu:
             return True  # 返回上一级菜单
         elif choice == 'q':
-            print("感谢使用，再见！")
+            View.show_message("感谢使用，再见！")
             exit()
         else:
-            print("无效的选项，请重试。")
+            View.show_message("无效的选项，请重试。")
 
     def run(self):
         while True:
             self.display()
-            choice = input("请输入选项: ").strip()
+            choice = View.get_message("请输入选项:")
             if self.execute(choice):
                 break
