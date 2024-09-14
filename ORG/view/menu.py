@@ -1,4 +1,4 @@
-from core.view import View
+from view.view import View
 
 class Menu:
     def __init__(self, title="主菜单"):
