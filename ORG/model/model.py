@@ -6,3 +6,6 @@ class BaseModel:
 
     def list(self):
         return self.table.all()
+
+    def get_by_id(self, idx):
+        return self.table.get(doc_id=idx) or {}
