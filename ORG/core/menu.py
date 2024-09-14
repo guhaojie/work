@@ -14,10 +14,10 @@ class Menu:
 
     def display(self):
         print(f"\n==== {self.title} ====")
-        for key, (description, _) in self.options.items():
-            print(f"{key}. {description}")
-        for key, submenu in self.sub_menus.items():
-            print(f"{key}. {submenu.title}")
+        for _ in sorted(self.options.keys()):
+            print(f"{_}. {self.options[_][0]}")
+        for _ in sorted(self.sub_menus.keys()):
+            print(f"{_}. {self.sub_menus[_].title}")
         if self.parent_menu:
             print("b. 返回")
         else:
