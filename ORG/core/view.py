@@ -1,6 +1,6 @@
 class BaseView:
     def display_message(self, message):
-        print(f"\n{message}\n")
+        print(f"{message}")
 
     def get_input(self, prompt):
         return input(f"\n{prompt} ")

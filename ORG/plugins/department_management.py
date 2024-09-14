@@ -1,4 +1,3 @@
-
 from core.controller import BaseController
 from core.model import BaseModel
 from core.view import BaseView
