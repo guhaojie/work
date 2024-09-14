@@ -1,14 +1,5 @@
 from view.view import View
 from config import BANNER
-import os
-import platform
-
-def clear():
-    sys = platform.system()
-    if sys == u'Windows':
-        os.system('cls')
-    else:
-        os.system('clear')
 
 class Menu:
     def __init__(self, title="主菜单"):
@@ -25,7 +16,7 @@ class Menu:
             self.options[key] = (description, action)
 
     def display(self):
-        clear()
+        View.clear()
         View.show_message(BANNER)
         View.show_level_1_title(self.title)
         for _ in sorted(self.options.keys()):

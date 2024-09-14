@@ -1,3 +1,6 @@
+import os
+import platform
+
 class View:
     def show_level_1_title(title):
         print(f"\n{title.center(60, '=')}\n")
@@ -17,3 +20,10 @@ class View:
 
     def show_notification(message):
         input(f"\nNOTICE: {message}\nPress ANY KEY to continue: ")
+
+    def clear():
+        sys = platform.system()
+        if sys == u'Windows':
+            os.system('cls')
+        else:
+            os.system('clear')
