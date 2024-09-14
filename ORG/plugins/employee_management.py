@@ -1,8 +1,7 @@
 from core.menu import Menu
 
 def register(menu, database):
-    employee_menu = Menu()
-    employee_menu.set_title('员工管理')
+    employee_menu = Menu('员工管理')
 
     def add_employee():
         print("添加员工功能")
