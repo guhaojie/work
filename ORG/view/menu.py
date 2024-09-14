@@ -1,4 +1,14 @@
 from view.view import View
+from config import BANNER
+import os
+import platform
+
+def clear():
+    sys = platform.system()
+    if sys == u'Windows':
+        os.system('cls')
+    else:
+        os.system('clear')
 
 class Menu:
     def __init__(self, title="主菜单"):
@@ -15,6 +25,8 @@ class Menu:
             self.options[key] = (description, action)
 
     def display(self):
+        clear()
+        View.show_message(BANNER)
         View.show_level_1_title(self.title)
         for _ in sorted(self.options.keys()):
             View.show_message(f"{_}. {self.options[_][0]}")
@@ -36,7 +48,7 @@ class Menu:
             View.show_message("感谢使用，再见！")
             exit()
         else:
-            View.show_message("无效的选项，请重试。")
+            View.show_notification("无效的选项，请重试。")
 
     def run(self):
         while True:

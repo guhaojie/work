@@ -7,14 +7,14 @@ def register(menu, database):
     employee_model = EmployeeModel(database)
 
     def add_employee():
-        View.show_level_2_title("添加员工功能")
+        View.show_level_2_title("添加员工")
         name = View.get_message("输入员工名字: ")
         employee_model.add_employee(name)
         View.show_notification(f"员工 {name} 已添加")
 
     def list_employees():
         employees = employee_model.list_employees()
-        View.show_level_2_title("员工列表:")
+        View.show_level_2_title("员工列表")
         for emp in employees:
             View.show_message(f"- {emp['name']}")
         View.show_notification("所有员工均已列出")
