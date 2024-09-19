@@ -52,7 +52,7 @@ class Validate:
 
 class DisplayInfo:
     def pprint(self, info):
-        print(f"\n{info}\n{'~'*50}")
+        print(f"*** {info}")
 
     def warning(self, info):
         self.pprint(f"WARNING: {info}")

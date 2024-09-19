@@ -20,7 +20,7 @@ class BaseCMD(cmd.Cmd):
                 module = importlib.import_module(f'commands.{module_name}')
                 callable_functions = [
                     func for name, func in module.__dict__.items()
-                    if callable(func) and name.startswith('do_')
+                    if callable(func) and (name.startswith('do_') or name.startswith('complete_'))
                 ]
                 for method in callable_functions:
                     setattr(self, method.__name__, method)
