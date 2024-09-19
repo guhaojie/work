@@ -2,7 +2,8 @@ from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from RULE import rules
 
-if __name__ == '__main__':
+
+def start_get_news():
     process = CrawlerProcess(get_project_settings())
 
     for rule in rules:
@@ -10,3 +11,7 @@ if __name__ == '__main__':
 
     process.start()
     print("\n**************FINISHED**************")
+
+
+if __name__ == '__main__':
+    start_get_news()
