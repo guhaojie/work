@@ -54,7 +54,7 @@ DOWNLOADER_MIDDLEWARES = {
 }
 
 EXTENSIONS = {
-    "GET_NEWS.extensions.ProgressBar": 500,
+    #    "GET_NEWS.extensions.ProgressBar": 500,
 }
 
 ITEM_PIPELINES = {

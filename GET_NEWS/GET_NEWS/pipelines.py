@@ -23,6 +23,7 @@ class GenNewsKWPipeline:
 class SaveNewsPipeline:
     def process_item(self, item, spider):
         with open(f"/Users/haojiegu/Library/Application Support/DEVONthink 3/Inbox/{item['nsTITLE']}.md", "w") as f:
+            print(item['nsTITLE'])
             f.write("# " + item['nsTITLE'])
             f.write("\n")
             f.write(item['nsURL'])

@@ -41,30 +41,30 @@ class BaseCMD(cmd.Cmd):
     def get_class_name(self):
         return self.__class__.__name__.lower()
 
-    def do_help(self, arg):
+    def do_help(self, line):
         """列出所有命令和基本说明"""
-        if arg:
-            super().do_help(arg)
+        if line:
+            super().do_help(line)
         else:
-            print(f"\n命令列表: \n{'=' * 30}")
+            print(f"\n命令列表: \n{'=' * 50}")
             for cmd_name in self.__dict__:
                 if cmd_name.startswith('do_'):
-                    print(f'- {cmd_name[3:]}: {getattr(self, cmd_name).__doc__}')
+                    print(f'- {cmd_name[3:]:<20}: {getattr(self, cmd_name).__doc__}')
             names = self.get_names()
             for name in names:
                 if name[:3] == 'do_':
-                    print(f'- {name[3:]}: {getattr(self, name).__doc__}')
+                    print(f'- {name[3:]:<20}: {getattr(self, name).__doc__}')
             print('')
 
 
 class MenuCMD(BaseCMD):
-    def do_exit(self, arg):
+    def do_exit(self, line):
         """退出"""
         print('再见!')
         exit()
 
 
 class SubMenuCMD(MenuCMD):
-    def do_back(self, arg):
+    def do_back(self, line):
         """返回主菜单"""
         return True

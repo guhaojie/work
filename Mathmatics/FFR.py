@@ -1,4 +1,5 @@
 import random
+import sys
 
 BOUND_U = 100
 BOUND_L = 0
@@ -88,15 +89,24 @@ def gen_print(x, last_op=None, lr=None):
         _r += " = ? "
     return _r
 
+def q_and_a(num):
+    for _ in range(num):
+        question = expand_gen(basic_gen,
+                              2,
+                              basic_gen(random.randint(BOUND_L, BOUND_U)))
+        answer = question['r']
+        print(f"{_ + 1}>\t{gen_print(question)}", end='')
+        ans = input()
+        if ans == str(answer):
+            print("It's right!")
+        else:
+            print(f"It's wrong! The right answer is {answer}.")
 
-for _ in range(2):
-    Question = expand_gen(basic_gen,
-                          2,
-                          basic_gen(random.randint(BOUND_L, BOUND_U)))
-    Answer = Question['r']
-    print(f"{_ + 1}>\t{gen_print(Question)}", end='')
-    ans = input()
-    if ans == str(Answer):
-        print("It's right!")
-    else:
-        print(f"It's wrong! The right answer is {Answer}.")
+
+if __name__ == "__main__":
+    try:
+        q_num = int(sys.argv[1])
+    except ValueError:
+        print('请输入一个数字')
+        exit()
+    q_and_a(q_num)
