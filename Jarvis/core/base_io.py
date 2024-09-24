@@ -3,7 +3,7 @@ class Validate:
         while True:
             func = getattr(self, validate, self.default)
             # noinspection PyArgumentList
-            value = func(input(f"{prompt}: "), pattern)
+            value = func(input(f"  {prompt}: "), pattern)
             if value is not False:
                 return value
 
@@ -51,11 +51,27 @@ class Validate:
             return False
 
 class DisplayInfo:
+    def colored_text(self, text, color=None, bold=False):
+        colors = {
+            "black": "\033[30m",
+            "red": "\033[31m",
+            "green": "\033[32m",
+            "yellow": "\033[33m",
+            "blue": "\033[34m",
+            "purple": "\033[35m",
+            "cyan": "\033[36m",
+            "white": "\033[37m"
+        }
+        bold_code = "\033[1m" if bold else ""
+        color_code = colors.get(color, "")
+        reset_code = "\033[0m"
+        return f"{bold_code}{color_code}{text}{reset_code}"
+
     def pprint(self, info):
-        print(f"*** {info}")
+        print(f"  {info}")
 
     def warning(self, info):
-        self.pprint(f"WARNING: {info}")
+        self.pprint(f"{self.colored_text(text='WARNING:', color='red', bold=True)} {info}")
 
     def notice(self, info):
-        self.pprint(f"NOTICE: {info}")
+        self.pprint(f"{self.colored_text(text='NOTICE:', color='white', bold=True)} {info}")

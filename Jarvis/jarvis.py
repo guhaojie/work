@@ -1,6 +1,5 @@
 from core.base_cmd import MenuCMD
 
-
 class Jarvis(MenuCMD):
     prompt = 'Jarvis> '
 
